@@ -1,17 +1,7 @@
 import React from "react";
 
 class CartItem extends React.Component{
-    constructor(){
-        super();
-        this.state={
-            price:999,
-            title:'Mobile Phone',
-            qty:1,
-            img: ''
-        }
-        // 2nd way to use
-        // this.increasQuantity = this.increasQuantity.bind(this);
-    }
+    
     
 // reset the quantity, delete the cart
 resetQuantity = ()=>{
@@ -53,7 +43,8 @@ decreaseQuantity = () =>{
 
     render()
     {
-        const {price,title,qty}= this.state;
+        console.log("this.props",this.props);
+        const {price,title,qty}= this.props.product;
         return(
             <div className="cart-item">
                 <div className="left-block">
