@@ -3,43 +3,43 @@ import React from "react";
 class CartItem extends React.Component{
     
     
-// reset the quantity, delete the cart
-resetQuantity = ()=>{
-    this.setState((prevState)=>{
-        if(prevState.qty>1){
-            return {
-                qty:1
-            }
-        }
-    });
-}
+// // reset the quantity, delete the cart
+// resetQuantity = ()=>{
+//     this.setState((prevState)=>{
+//         if(prevState.qty>1){
+//             return {
+//                 qty:1
+//             }
+//         }
+//     });
+// }
 
-// decrease the quantity
-decreaseQuantity = () =>{
-    this.setState((prevState)=>{
-        if(prevState.qty>1){
-            return {
-                qty: prevState.qty-1
-            }
-        }
-    });
-}
-    // Arrow function directy bind with the object, increase Quantity
-    increasQuantity=()=>{
-        // this.state.qty+=1;
-        // this.state.qty = this.state.price;
-        // console.log("this",this.state);
-    // setState form 1
-        // this.setState({
-        //     qty:this.state.qty+1
-        // });
-    //  setState form 2, if previous state require than use this.
-        this.setState((prevState)=>{
-            return {
-                qty: prevState.qty+1
-            }
-        });
-    }
+// // decrease the quantity
+// decreaseQuantity = () =>{
+//     this.setState((prevState)=>{
+//         if(prevState.qty>1){
+//             return {
+//                 qty: prevState.qty-1
+//             }
+//         }
+//     });
+// }
+//     // Arrow function directy bind with the object, increase Quantity
+//     increasQuantity=()=>{
+//         // this.state.qty+=1;
+//         // this.state.qty = this.state.price;
+//         // console.log("this",this.state);
+//     // setState form 1
+//         // this.setState({
+//         //     qty:this.state.qty+1
+//         // });
+//     //  setState form 2, if previous state require than use this.
+//         this.setState((prevState)=>{
+//             return {
+//                 qty: prevState.qty+1
+//             }
+//         });
+//     }
 
     render()
     {
@@ -61,17 +61,20 @@ decreaseQuantity = () =>{
                             src="https://image.flaticon.com/icons/svg/1828/1828926.svg"
                             // 1st way to use 
                             // onClick={this.increasQuantity.bind(this)}
-                            onClick={this.increasQuantity}
+                            // onClick={this.increasQuantity}
+                            onClick={()=>this.props.onIncreaseQuantity(this.props.product)}
                             />
                             <img alt="decrease"
                             className="action-icons" 
                             src="https://image.flaticon.com/icons/svg/1828/1828906.svg"
-                            onClick={this.decreaseQuantity}
+                            // onClick={this.decreaseQuantity}
+                            onClick={()=> this.props.onDecreaseQuantity(this.props.product)}
                             />
                             <img alt="delete" 
                             className="action-icons" 
                             src="https://image.flaticon.com/icons/svg/709/709519.svg"
-                            onClick={this.resetQuantity}
+                            // onClick={this.resetQuantity}
+                            onClick={()=>this.props.onDeleteProductQuantity(this.props.product.id)}
                             />
                     </div>
                 </div>
