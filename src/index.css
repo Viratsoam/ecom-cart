@@ -17,9 +17,15 @@ body {
 .cart-item-actions{
   margin-top: 20px;
 }
+.action-icon{
+  height: 25px;
+  width: 25px;
+  margin-top: 10px;
+}
 .action-icons{
   height: 25px;
   width: 25px;
+  padding-left:5px;
   margin-top: 10px;
 }
 .action-icons:hover{
