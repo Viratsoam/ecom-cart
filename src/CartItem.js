@@ -1,6 +1,6 @@
 import React from "react";
 
-class CartItem extends React.Component{
+
     
     
 // // reset the quantity, delete the cart
@@ -41,14 +41,14 @@ class CartItem extends React.Component{
 //         });
 //     }
 
-    render()
+const CartItem = (props)=>
     {
-        console.log("this.props",this.props);
-        const {price,title,qty}= this.props.product;
+        console.log("this.props",props);
+        const {price,title,qty}= props.product;
         return(
             <div className="cart-item">
                 <div className="left-block">
-                    <img style={styles.image}/>
+                    <img style={styles.image} alt=""/>
                 </div>
                 <div className="right-block">
         <div style={{fontSize:25}}>{title}</div>
@@ -62,26 +62,26 @@ class CartItem extends React.Component{
                             // 1st way to use 
                             // onClick={this.increasQuantity.bind(this)}
                             // onClick={this.increasQuantity}
-                            onClick={()=>this.props.onIncreaseQuantity(this.props.product)}
+                            onClick={()=>props.onIncreaseQuantity(props.product)}
                             />
                             <img alt="decrease"
                             className="action-icons" 
                             src="https://image.flaticon.com/icons/svg/1828/1828906.svg"
                             // onClick={this.decreaseQuantity}
-                            onClick={()=> this.props.onDecreaseQuantity(this.props.product)}
+                            onClick={()=> props.onDecreaseQuantity(props.product)}
                             />
                             <img alt="delete" 
                             className="action-icons" 
                             src="https://image.flaticon.com/icons/svg/709/709519.svg"
                             // onClick={this.resetQuantity}
-                            onClick={()=>this.props.onDeleteProductQuantity(this.props.product.id)}
+                            onClick={()=>props.onDeleteProductQuantity(props.product.id)}
                             />
                     </div>
                 </div>
             </div>
         );
     }
-}
+
 
 const styles = {
     image:{
