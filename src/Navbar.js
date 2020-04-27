@@ -12,7 +12,6 @@ const Navbar =(props)=>
         );
 }
 
-
 const styles = {
     cartIcon:{
         height:42,
